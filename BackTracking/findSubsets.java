@@ -24,7 +24,7 @@ public class findSubsets {
         findSubset(str, ans, i + 1); 
     }
     public static void main(String[] args) {
-        String str = "a";
+        String str = "abcdef";
         findSubset(str, "", 0);
     }
 }
