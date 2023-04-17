@@ -1,4 +1,3 @@
-import java.util.*;
 
 class Human{
 // Classes consists of data and members.
