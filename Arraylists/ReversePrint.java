@@ -2,6 +2,7 @@ package Arraylists;
 import java.util.ArrayList;
  
 public class ReversePrint {
+
     public static void printReverse(ArrayList<Integer> list) {
         for  (int i = list.size( )  - 1 ;  i >= 0;  i--) {
             System.out.print(list.get(i) + " ");
