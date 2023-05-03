@@ -1,25 +1,14 @@
-package Arraylists;
-import java.util.ArrayList;
- 
-public class ReversePrint {
+// package Arraylists;
 
-    public static void printReverse(ArrayList<Integer> list) {
-        for  (int i = list.size( )  - 1 ;  i >= 0;  i--) {
-            System.out.print(list.get(i) + " ");
-        }
-        
-        System.out.println();
-    }
+// public class ReversePrint {
     
-    public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
+//     public static void main(String[] args) {
+//         ArrayList<Integer> list = new ArrayList<>();
 
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-
-        printReverse(list);
-    }
-}
+//         list.add(1);
+//         list.add(2);
+//         list.add(3);
+//         list.add(4);
+//         list.add(5);
+//     }
+// }
