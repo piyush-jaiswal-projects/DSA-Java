@@ -15,3 +15,12 @@ OUTPUT: 49
 **Pair Sum**
 Find if any pair in a sorted arraylist has a target sum
 INPUT: list = [1,2,3,4,5,6], target = 5
+
+### Commit-26
+**Pair Sum Advance**
+Find if any pair in a sorted and rotated array has a target sum
+INPUT: [11,15,6,8,9,10], target = 16
+
+## LINKED LIST
+
+
