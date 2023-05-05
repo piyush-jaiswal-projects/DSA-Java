@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+// T.C. O(n^2)
+
 public class MaxWaterInContainer {
     public static int maxWater(ArrayList<Integer> heights) {
         int maxWater = 0;

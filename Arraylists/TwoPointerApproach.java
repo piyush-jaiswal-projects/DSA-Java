@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+// T.C. O(n)
+
 public class TwoPointerApproach {
 
     public static int maxWater(ArrayList<Integer> heights) {
