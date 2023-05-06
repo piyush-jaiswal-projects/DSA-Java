@@ -85,8 +85,7 @@ public class LinkedList {
     public int removeLast() {
         if (size == 0) {
             System.out.println("LL is empty");
-        }
-        else if (size == 1) {
+        } else if (size == 1) {
             int val = tail.data;
             head = tail = null;
             size = 0;
@@ -103,7 +102,23 @@ public class LinkedList {
         tail = prev;
         size--;
         return val;
-        
+
+    }
+    
+    public int itrSearch(int key) {
+        int i = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            if (temp.data == key) { //key found
+                return i;
+            }
+            i++;
+            temp = temp.next;
+        }
+
+        //key not found
+        return -1;
     }
 
 
@@ -118,11 +133,8 @@ public class LinkedList {
         ll.add(2, 3);
         ll.print();
 
-        ll.removeFirst();
-        ll.print();
-
-        ll.removeLast();
-        ll.print();
+        System.out.println(ll.itrSearch(3));
+        System.out.println(ll.itrSearch(10));
         
     }
 }
