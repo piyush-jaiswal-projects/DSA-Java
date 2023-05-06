@@ -121,6 +121,16 @@ public class LinkedList {
         return -1;
     }
 
+    public int recursiveSearch(Node curr, int idx, int key) {
+        if (curr == null) {
+            return -1;
+        }
+
+        if (curr.data == key)
+            return idx;
+
+        return recursiveSearch(curr.next, idx + 1, key);
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -133,8 +143,8 @@ public class LinkedList {
         ll.add(2, 3);
         ll.print();
 
-        System.out.println(ll.itrSearch(3));
-        System.out.println(ll.itrSearch(10));
+        System.out.println(ll.recursiveSearch(head, 0, 3));
+        System.out.println(ll.recursiveSearch(head, 0, 10));
         
     }
 }
