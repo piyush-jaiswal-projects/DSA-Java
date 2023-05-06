@@ -27,3 +27,21 @@ INPUT: [11,15,6,8,9,10], target = 16
 **Linked List basic**
 Basic codes and some basic functions
 
+### Commit-28
+**Search using Iteration**
+Search for a key in a linked list. Return the position where it is found. If not found, return -1.
+
+### Commit-29
+**Search using recursion**
+Solve above question using recursion
+
+### Commit-30
+**Reverse LinkedList Iteratively**
+
+### Commit-31
+**Find and remove nth node from end**
+Using iterative approach
+
+### Commit-32
+**Check if LL is a palindrome**
+

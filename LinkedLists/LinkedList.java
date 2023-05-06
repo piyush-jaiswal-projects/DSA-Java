@@ -155,10 +155,9 @@ public class LinkedList {
         }
 
         //edge case
-        if (sz-n<0) {
+        if (sz - n < 0) {
             System.out.println("Node does not exists");
-        }
-        else if (n == sz) {
+        } else if (n == sz) {
             head = head.next;
             return;
         }
@@ -174,20 +173,59 @@ public class LinkedList {
         prev.next = curr.next;
         curr.next = null;
     }
+    
+    //Slow-Fast Approach
+    public Node findMid(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; //mid node of our LL
+    }
+
+    public boolean checkPalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        //step-1 find mid node
+        Node midNode = findMid(head);
+
+        //step-2 reverse 2nd half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        Node right = prev; //head of right part
+        Node left = head; //head of left part
+
+        //step-3 check right and left half
+        while (right != null) {
+            if (left.data != right.data) {
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(2);
         ll.addFirst(1);
-
-        ll.addLast(4);
-        ll.addLast(5);
-
-        ll.add(2, 3);
+        ll.addFirst(2);
+        ll.addFirst(3);
+        ll.addFirst(1);
         ll.print();
 
-        ll.removeNthNodeFromEnd(2);
-        ll.print();
+        System.out.println(ll.checkPalindrome());
         
     }
 }
