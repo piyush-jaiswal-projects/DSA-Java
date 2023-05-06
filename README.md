@@ -23,4 +23,7 @@ INPUT: [11,15,6,8,9,10], target = 16
 
 ## LINKED LIST
 
+### Commit-27
+**Linked List basic**
+Basic codes and some basic functions
 
