@@ -185,8 +185,8 @@ public class LinkedList {
         return slow; //mid node of our LL
     }
 
-    public boolean checkPalindrome(){
-        if(head == null || head.next == null){
+    public boolean checkPalindrome() {
+        if (head == null || head.next == null) {
             return true;
         }
         //step-1 find mid node
@@ -216,16 +216,28 @@ public class LinkedList {
         }
         return true;
     }
+    
+    public static boolean isCycle() {
+        Node Slow = head;
+        Node Fast = head;
+
+        while (Fast != null && Fast.next != null) {
+            Slow = Slow.next; //+1
+            Fast = Fast.next.next; //+2
+            if (Slow == Fast) {
+                return true; //cycle exists
+            }
+        }
+
+        return false; //cycle doesn't exists
+    }
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(3);
-        ll.addFirst(1);
-        ll.print();
-
-        System.out.println(ll.checkPalindrome());
-        
+        head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        head.next.next.next = head;
+        //1->2->3->1
+        System.out.println(isCycle());
     }
 }
