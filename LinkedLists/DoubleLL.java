@@ -76,13 +76,29 @@ public class DoubleLL {
 
     }
 
-    public void print(){
+    public void print() {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + "<->");
             temp = temp.next;
         }
         System.out.println("null");
+    }
+    
+    public void reverse() {
+        Node prev = null;
+        Node curr = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            curr.prev = next;
+
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
     }
     public static void main(String[] args) {
         DoubleLL dll = new DoubleLL();
@@ -91,7 +107,7 @@ public class DoubleLL {
         dll.addFirst(1);
         dll.addLast(4);
         dll.print();
-        System.out.println(dll.removeLast());
+        dll.reverse();
         dll.print();
     }
 }
