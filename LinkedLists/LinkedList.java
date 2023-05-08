@@ -262,16 +262,80 @@ public class LinkedList {
         prev.next = null;
     }
 
-    public static void main(String[] args) {
-        head = new Node(1);
-        Node temp = new Node(2);
-        head.next = temp;
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
-        head.next.next.next.next = temp;
-        //1->2->3->4->2
-        System.out.println(isCycle());
-        removeCycle();
-        System.out.println(isCycle());
+    public static Node getMid(Node head) {
+        Node slow = head;
+        Node fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        return slow;
+    }
+
+    public static Node merge(Node headL, Node headR) {
+        Node mergedLL = new Node(-1);
+        Node temp = mergedLL;
+
+        while (headL != null && headR != null) {
+            if (headL.data <= headR.data) {
+                temp.next = headL;
+                headL = headL.next;
+                temp = temp.next;
+            } else {
+                temp.next = headR;
+                headR = headR.next;
+                temp = temp.next;
+            }
+        }
+
+        while (headL != null) {
+            temp.next = headL;
+            headL = headL.next;
+            temp = temp.next;
+        }
+
+        while (headR != null) {
+            temp.next = headR;
+            headR = headR.next;
+            temp = temp.next;
+        }
+        
+        return mergedLL.next;
+    }
+
+    public Node mergeSort(Node head) {
+        //base case
+        if (head == null || head.next == null) {
+            return head;
+        }
+        //find mid node
+        Node mid = getMid(head);
+
+        //divide
+        Node headL = head;
+        Node headR = mid.next;
+        mid.next = null;
+        Node newLeft = mergeSort(headL); //left part
+        Node newRight = mergeSort(headR); //right part
+
+        //conquer - merge function
+        return merge(newLeft, newRight);
+
+     }
+
+     public static void main(String[] args) {
+         LinkedList ll = new LinkedList();
+         ll.addFirst(1);
+         ll.addFirst(2);
+         ll.addFirst(3);
+         ll.addFirst(4);
+         ll.addFirst(5);
+         //5->4->3->2->1
+
+         ll.print();
+         ll.head = ll.mergeSort(ll.head);
+        ll.print();
     }
 }
