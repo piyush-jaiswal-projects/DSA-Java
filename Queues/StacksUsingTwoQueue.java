@@ -1,7 +1,7 @@
 package Queues;
 import java.util.*;
 
-public class QueueUsing2Stacks {
+public class StacksUsingTwoQueue {
     static class Stack {
         static Queue<Integer> q1 = new LinkedList<>();
         static Queue<Integer> q2 = new LinkedList<>();
